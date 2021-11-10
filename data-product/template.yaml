@@ -1,61 +1,57 @@
 apiVersion: backstage.io/v1beta2
 kind: Template
 metadata:
-  name: outputport-s3-template
-  title: Output Port S3 Template
-  description: Create a repository containing the definition of an S3 Output Port
+  name: dataproduct-template
+  title: Data Product Template
+  description: Create a repository containing the definition of a Data Product
   tags:
-    - aws
-    - s3
-    - output-port
+    - data-product
 spec:
   owner: agilelab
-  type: outputport
+  type: dataproduct
   
   parameters:
-    - title: Provide some simple information
+    - title: Data Product details
       required:
-        - component_id
-        - directory
-        - cdp_environment
+        - name
+        - description
+        - domain
+        - version
+        - environment
         - owner
       properties:
-        component_id:
-          title: Name
+        name:
+          title: Data Product name
           type: string
-          description: Unique name of the output port
+          description: the Data Product name
         description:
           title: Description
           type: string
-          description: Help others understand what this output port is for.
-        directory:
-          title: Directory
+          description: Help others understand what this Data Product is for.
+        domain:
+          title: Domain
           type: string
-          description: Name of the directory on S3.
-        cdp_environment:
-          title: CDP Environment
+          description: the Domain of the Data Product
+          ui:field: EntityPicker
+          ui:options:
+            allowedKinds: 
+              - Domain
+        version:
+          title: Version
           type: string
-          description: CDP Environment that owns the S3 bucket.
+          description: the version of the Data Product
+        environment:
+          title: Environment
+          type: string
+          description: the Environment to which this Data Product will be deployed
         owner:
           title: Owner
           type: string
-          description: Owner of the output port
+          description: Owner of the Data Product
           ui:field: OwnerPicker
           ui:options:
             allowedKinds: 
               - Group
-    - title: Data Product details
-      required:
-        - dataproduct
-      properties:
-        dataproduct:
-          title: Data Product
-          type: string
-          description: the Data Product this output port belongs to
-          ui:field: EntityPicker
-          ui:options:
-            allowedKinds: 
-              - System
     - title: Choose a location  
       required:
         - repoUrl
@@ -77,14 +73,13 @@ spec:
         copyWithoutRender:
           - .github/workflows/*
         values:
-          component_id: '{{ parameters.component_id }}'
-          description: '{{ parameters.description }}'
-          artifact_id: '{{ parameters.component_id }}'
-          directory: '{{ parameters.directory }}'
-          cdp_environment: '{{ parameters.cdp_environment }}'
-          dataproduct: '{{ parameters.dataproduct }}'
-          owner: '{{ parameters.owner }}'
+          domain: '{{ parameters.domain }}'
+          name: '{{ parameters.name }}'
+          environment: '{{ parameters.environment }}'
+          version: '{{ parameters.version }}'
           destination: '{{ parseRepoUrl parameters.repoUrl }}'
+          description: '{{ parameters.description }}'
+          owner: '{{ parameters.owner }}'
 
     - id: publish
       name: Publish
