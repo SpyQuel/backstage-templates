@@ -46,7 +46,7 @@ spec:
               - Group
     - title: Data Product details
       required:
-        - name
+        - dataproduct
         - domain
         - version
         - environment
