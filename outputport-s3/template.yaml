@@ -47,6 +47,9 @@ spec:
     - title: Data Product details
       required:
         - dataproduct
+        - domain
+        - version
+        - environment
       properties:
         dataproduct:
           title: Data Product
@@ -56,6 +59,18 @@ spec:
           ui:options:
             allowedKinds: 
               - System
+        domain:
+          title: Domain
+          type: string
+          description: the Domain of the Data Product this output port belongs to
+        version:
+          title: Version
+          type: string
+          description: the version of the Data Product this output port belongs to
+        environment:
+          title: Environment
+          type: string
+          description: the Environment to which this output port will be deployed
     - title: Choose a location  
       required:
         - repoUrl
@@ -82,7 +97,10 @@ spec:
           artifact_id: '{{ parameters.component_id }}'
           directory: '{{ parameters.directory }}'
           cdp_environment: '{{ parameters.cdp_environment }}'
+          domain: '{{ parameters.domain }}'
           dataproduct: '{{ parameters.dataproduct }}'
+          environment: '{{ parameters.environment }}'
+          version: '{{ parameters.version }}'
           owner: '{{ parameters.owner }}'
           destination: '{{ parseRepoUrl parameters.repoUrl }}'
 
