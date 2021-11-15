@@ -7,12 +7,12 @@ metadata:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
   links:
-    - url: ${{"https://cdp-data-eu-west-1-123123123123.s3.eu-west-1.amazonaws.com/mesh/" + values.directory}}
-      title: S3 directory
+    - url: ${{"https://" + values.cdp_environment +".s3.eu-west-1.amazonaws.com/mesh/" + values.domain + "/" + values.dataproduct + "/" + values.version + "/" + values.directory}}
+      title: S3 Directory
       icon: cloud
   tags:
     - outputport
-    - S3
+    - s3
 spec:
   type: outputport
   lifecycle: experimental
