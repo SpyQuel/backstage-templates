@@ -71,6 +71,10 @@ spec:
           title: Environment
           type: string
           description: the Environment to which this output port will be deployed
+          enum:
+            - develop
+            - qa
+            - prod
     - title: Choose a location  
       required:
         - repoUrl

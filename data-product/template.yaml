@@ -44,6 +44,10 @@ spec:
           title: Environment
           type: string
           description: the Environment to which this Data Product will be deployed
+          enum:
+            - develop
+            - qa
+            - prod
         owner:
           title: Owner
           type: string
