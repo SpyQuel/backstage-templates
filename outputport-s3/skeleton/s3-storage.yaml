@@ -1,11 +1,11 @@
-domain: ${{ values.domain}}
-dataProduct: ${{ values.dataproduct}}
-environment: ${{ values.environment}}
-version: ${{ values.version}}
-name: ${{ values.component_id}}
+domain: ${{values.domain}}
+dataProduct: ${{values.dataproduct}}
+environment: ${{values.environment}}
+version: ${{values.version}}
+name: ${{values.component_id}}
 owners:
-  - ${{ values.owner}}
+  - ${{values.owner}}
 users: []
 specific:
-  folder: ${{ values.directory}}
-  cdpEnvironment: ${{ values.cdp_environment}}
+  folder: ${{values.directory}}
+  cdpEnvironment: ${{values.cdp_environment}}
