@@ -13,8 +13,26 @@ metadata:
   tags:
     - outputport
     - s3
+  mesh:
+    resourceType: raw
+    technology: s3
+    issueDate:
+    startDate:
+    processDescription:
+    billingPolicy:
+    securityPolicy:
+    consumerPolicy:
+    slo:
+    intervalOfChange:
+    timeliness:
+    allow: [ ]
+    owner: ${{values.owner | dump}}
+    dependsOn: [ ]
 spec:
   type: outputport
   lifecycle: experimental
   owner: ${{values.owner | dump}}
   system: ${{values.dataproduct | dump}}
+  mesh:
+    folder: ${{values.directory}}
+    cdpEnvironment: ${{values.cdp_environment}}
