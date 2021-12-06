@@ -1,6 +1,0 @@
-domain: ${{ values.domain | dump}}
-dataProduct: ${{ values.name | dump}}
-environment: ${{ values.environment | dump}}
-version: ${{ values.version | dump}}
-owners:
-  - ${{ values.owner | dump}}

@@ -6,8 +6,15 @@ metadata:
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
+  mesh:
+    owner: ${{values.owner | dump}}
 spec:
   type: dataproduct
   lifecycle: experimental
   owner: ${{values.owner | dump}}
   domain: ${{values.domain | dump}}
+  mesh:
+    name: ${{ values.name | dump}}
+    environment: ${{ values.environment | dump}}
+    version: ${{ values.version | dump}}
+    consumes: []
